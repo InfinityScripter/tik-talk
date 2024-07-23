@@ -24,6 +24,11 @@
   src: url('/assets/fonts/JetBrainsMono-Thin.woff2') format('woff2');
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 :root {
   --primary-color: #AE7AFF;

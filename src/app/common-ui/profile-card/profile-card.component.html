@@ -1,25 +1,37 @@
-<div class="profile-card">
-  <div class="avatar-name">
-    <img
-      src="https://pushinka.top/uploads/posts/2023-04/1680945556_pushinka-top-p-pikselnie-avatarki-dlya-stima-avatarka-vko-44.jpg"
-      alt="avatar" class="profile-card__avatar">
-    <div class="profile-card__name">
-      <strong>Name You</strong>
-      <span>name</span>
+@if (profile) {
+  <div class="profile-card">
+    <div class="avatar-name">
+      <img
+        [src]="profile.avatarUrl | imgUrl"
+        [alt]="profile.username" class="profile-card__avatar">
+      <div class="profile-card__name">
+        <strong>{{ profile.firstName }} {{ profile.lastName }}</strong>
+        <span>{{ profile.username }}</span>
+      </div>
+
     </div>
+    <div class="profile-card__description">
+      {{ profile.description }}
+    </div>
+    <div class="profile-card__tags">
+<!--      старый синтаксис-->
 
-  </div>
-  <div class="profile-card__description">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae dolore, dolores facere fugiat nihil officia soluta tempora ut vitae!
-  </div>
-  <div class="profile-card__tags">
-    <div class="skills__tag">Angular</div>
-    <div class="skills__tag">HTML</div>
-    <div class="skills__tag">CSS</div>
-    <div class="skills__tag">JS</div>
-  </div>
-  <div class="profile-card__actions-btns">
-    <button class="btn btn-primary">Subscribe</button>
+<!--      <div *ngFor="let skill of profile.stack" class="skills__tag">-->
+<!--        {{ skill }}-->
+<!--      </div>-->
+<!--      НОВЫЙ-->
+      @for(skill of profile.stack;track profile.id) {
+        <div class="skills__tag">
+          {{ skill }}
+        </div>
+      }
 
+    </div>
+    <div class="profile-card__actions-btns">
+      <button class="btn btn-primary">Subscribe</button>
+
+    </div>
   </div>
-</div>
+} @else {
+  <div>Not here</div>
+}
