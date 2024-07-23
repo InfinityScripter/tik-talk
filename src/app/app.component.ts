@@ -12,14 +12,5 @@ import {ProfileInterface} from "./data/interfaces/profile.interface";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'tik-talk';
-  profileService = inject(GetProfileService)
-  profiles: ProfileInterface[] = []
-
-  constructor() {
-    this.profileService.getTestAccount().subscribe(value => {
-      this.profiles = value
-    })
-  }
 
 }
