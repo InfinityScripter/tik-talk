@@ -8,11 +8,11 @@ import {ProfileInterface} from "../interfaces/profile.interface";
 export class GetProfileService {
   http = inject(HttpClient)
 
-  beseApiUrl = 'https://icherniakov.ru/yt-course/'
+  baseApiUrl = 'https://icherniakov.ru/yt-course/'
 
   constructor() { }
   getTestAccount() {
-    return this.http.get<ProfileInterface[]>( `${this.beseApiUrl}account/test_accounts`)
+    return this.http.get<ProfileInterface[]>( `${this.baseApiUrl}account/test_accounts`)
 
   }
 }

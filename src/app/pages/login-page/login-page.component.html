@@ -1,1 +1,18 @@
-<p>login-page works!</p>
+
+<form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit($event)">
+  <h1 class="h1">Вход</h1>
+  <div class="form-group">
+    <label class="tt-control-label mb16" for="username">Username
+      <input
+        formControlName="username"
+        placeholder="Введите username" type="text" id="username" name="username" class="tt-form-control" required>
+    </label>
+    <label class="tt-control-label mb32" for="password">Password
+      <input
+        formControlName="password"
+        placeholder="Введите пароль" type="password" id="password" name="password" class="tt-form-control" required>
+    </label>
+    <button class="btn" type="submit">Войти</button>
+  </div>
+</form>
+<img class="tt-image-login" src="https://ae01.alicdn.com/kf/U7a5204b75bde4ab7a0ca4dcac36e13bfZ.png" alt="logo-big">
