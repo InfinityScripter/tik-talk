@@ -22,8 +22,8 @@ export class AuthService {
     formData.append('password', payload.password);
     return this.http.post<AuthInterface>(this.baseApiUrl + 'auth/token', formData).pipe(
       tap(response => {
-        this.token = response.accessToken;
-        this.refreshToken = response.refreshToken;
+        this.token = response.access_token;
+        this.refreshToken = response.refresh_token;
       })
     )
   }
