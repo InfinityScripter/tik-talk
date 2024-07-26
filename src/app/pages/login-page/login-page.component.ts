@@ -1,13 +1,15 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../../auth/auth.service";
 import {Router} from "@angular/router";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
@@ -19,6 +21,8 @@ export class LoginPageComponent {
     username: new FormControl<string | null>(null, [Validators.required, Validators.required]),
     password: new FormControl(null, Validators.required),
   });
+
+  isPasswordVisible = signal<boolean>(false);
 
   onSubmit(event: Event) {
     event.preventDefault();
