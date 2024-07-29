@@ -1,0 +1,37 @@
+:host {
+  display: block;
+  padding: 20px 12px;
+}
+
+.main-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-gap: 8px ;
+
+}
+
+.menu-item {
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //display: grid;
+  //grid-template-columns: 16px 1fr max-content;
+  gap: 12px;
+  padding: 16px 12px;
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+  color: var(--light-color);
+  background: var(--gray-600);
+  &:hover,
+  &.active {
+    background-color: var(--gray-700);
+color: red;
+
+  }
+}
+
+
