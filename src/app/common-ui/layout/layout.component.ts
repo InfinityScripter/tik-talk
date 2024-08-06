@@ -14,10 +14,10 @@ import {GetProfileService} from "../../data/services/get-profile.service";
   styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
-profileService = inject(GetProfileService)
+// profileService = inject(GetProfileService)
 
-  ngOnInit() {
-    console.log(this.profileService.getMe())
-    this.profileService.getMe().subscribe(console.log)
-  }
+  // ngOnInit() {
+  //   console.log(this.profileService.getMe())
+  //   this.profileService.getMe().subscribe(console.log)
+  // }
 }

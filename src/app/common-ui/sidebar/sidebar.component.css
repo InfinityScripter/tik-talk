@@ -1,32 +1,95 @@
 :host {
   display: block;
   padding: 20px 12px;
+  position: relative;
+  background: var(--dark-color);
 }
 
 .main-menu-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: grid;
   grid-gap: 8px;
+  list-style: none;
 }
 
 .menu-item {
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
   padding: 16px 12px;
   cursor: pointer;
   border: none;
-  font-weight: 700;
+  background: none;
   color: var(--light-color);
-  background: var(--gray-600);
+  display: grid;
+  grid-template-columns: 16px 1fr max-content;
+  align-items: center;
+  grid-gap: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  width: 100%;
+  text-align: left;
+  border-radius: 2px;
+  text-decoration: none;
 }
-.menu-item:hover, .menu-item.active {
-  background-color: var(--gray-700);
-  color: red;
+.menu-item.active, .menu-item:hover, .menu-item:focus-visible {
+  background: var(--dark-hover-color);
+  color: var(--primary-color);
+}
+.menu-item.active .menu-item svg, .menu-item:hover .menu-item svg, .menu-item:focus-visible .menu-item svg {
+  color: var(--primary-color);
+}
+
+.menu-item svg {
+  width: 16px;
+  height: 16px;
+}
+
+.to-subscribers {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.to-subscribers-link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.to-subscribers-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.sidebar__footer {
+  position: absolute;
+  width: calc(100% - 20px);
+  bottom: 20px;
+  background: var(--dark-hover-color);
+  border-radius: 2px;
+  padding: 4px 16px;
+  display: grid;
+  grid-template-columns: 32px 1fr 16px;
+  grid-gap: 12px;
+  align-items: center;
+}
+.sidebar__footer img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.sidebar__footer .username-text {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.settings-btn svg {
+  width: 13px;
+  height: 13px;
+  color: var(--primary-color);
+}
+
+.tt-image-logo-sidebar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=sidebar.component.css.map */

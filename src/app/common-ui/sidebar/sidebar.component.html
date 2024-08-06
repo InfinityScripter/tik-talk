@@ -1,13 +1,42 @@
-<img class="tt-image-logo-sidebar mb20" src="https://ae01.alicdn.com/ kf/U7a5204b75bde4ab7a0ca4dcac36e13bfZ.png"
-     alt="logo-sidebar">
+<img class="tt-image-logo-sidebar mb20" src="https://ae01.alicdn.com/kf/U7a5204b75bde4ab7a0ca4dcac36e13bfZ.png" alt="logo-sidebar">
 
 <nav>
   <ul class="main-menu-list">
-    <li>
-      <button class="menu-item">
-<svg icon="icon"></svg>
-        Home page
-      </button>
+    <li *ngFor="let menuItem of menuItems">
+      <a class="menu-item" [routerLink]="menuItem.link">
+        <svg [icon]="menuItem.icon"></svg>
+        <span>{{ menuItem.label }}</span>
+      </a>
     </li>
   </ul>
 </nav>
+
+
+<p class="medium-text mb20">Подписота</p>
+
+@for (subscriber of subcribers$|async;track subscriber.id) {
+  <app-subscriber-card [profile]="subscriber"></app-subscriber-card>
+}
+
+
+<div class="mt20 to-subscribers">
+  <a class="to-subscribers-link" [routerLink]="['/subscribers']">Все подписчики</a>
+<svg icon="arrow" class="to-subscribers-icon"></svg>
+</div>
+
+<footer class="sidebar__footer">
+@if(me(); as me) {
+  @if(me.avatarUrl) {
+    <img class="sidebar__avatar" [src]="me.avatarUrl | imgUrl" [alt]="me.username">
+  } @else {
+    <img class="sidebar__avatar" src="/assets/imgs/avatar-placeholder.png" alt="avatar">
+  }
+
+  <div class="medium-text"> {{ me.username }}  </div>
+  <a [routerLink]="['settings']" class="settings-btn">
+    <svg icon="settings"></svg>
+  </a>
+}
+
+
+</footer>
