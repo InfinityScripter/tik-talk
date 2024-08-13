@@ -62,7 +62,7 @@
   position: absolute;
   width: calc(100% - 20px);
   bottom: 20px;
-  background: var(--dark-hover-color);
+  background: var(--gray-900);
   border-radius: 2px;
   padding: 4px 16px;
   display: grid;
