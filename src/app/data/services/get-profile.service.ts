@@ -34,5 +34,9 @@ export class GetProfileService {
 tap(res=> this.me.set(res) )
       )
   }
+
+  getAccount(id: string) {
+    return this.http.get<ProfileInterface>(`${this.baseApiUrl}account/${id}`)
+  }
 }
 
