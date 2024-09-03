@@ -5,7 +5,7 @@ import {firstValueFrom} from 'rxjs';
 import {ImgUrlPipe} from '../../helpers/pipes/img-url.pipe';
 import {SubscriberCardComponent} from './subscriber-card/subscriber-card.component';
 import {SvgComponent} from "../svg/svg.component";
-import {GetProfileService} from "../../data/services/get-profile.service";
+import {ProfileService} from "../../data/services/profile.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -24,7 +24,7 @@ import {GetProfileService} from "../../data/services/get-profile.service";
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
-  profileService = inject(GetProfileService)
+  profileService = inject(ProfileService)
   subcribers$ = this.profileService.getSubscribersShortList()
 
   me = this.profileService.me

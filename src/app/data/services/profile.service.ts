@@ -7,7 +7,7 @@ import {map, tap} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class GetProfileService {
+export class ProfileService {
   http = inject(HttpClient)
 
   baseApiUrl = 'https://icherniakov.ru/yt-course/'
@@ -37,6 +37,13 @@ tap(res=> this.me.set(res) )
 
   getAccount(id: string) {
     return this.http.get<ProfileInterface>(`${this.baseApiUrl}account/${id}`)
+  }
+
+  patchProfile(data: Partial<ProfileInterface>) {
+    return this.http.patch<ProfileInterface>(`${this.baseApiUrl}account/me`, data)
+      // .pipe(
+      //   tap(res => this.me.set(res))
+      // )
   }
 }
 

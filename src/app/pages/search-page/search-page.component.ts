@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {ProfileCardComponent} from "../../common-ui/profile-card/profile-card.component";
-import {GetProfileService} from "../../data/services/get-profile.service";
+import {ProfileService} from "../../data/services/profile.service";
 import {ProfileInterface} from "../../data/interfaces/profile.interface";
 
 @Component({
@@ -14,7 +14,7 @@ import {ProfileInterface} from "../../data/interfaces/profile.interface";
 })
 export class SearchPageComponent {
   title = 'tik-talk';
-  profileService = inject(GetProfileService)
+  profileService = inject(ProfileService)
   profiles: ProfileInterface[] = []
 
   constructor() {

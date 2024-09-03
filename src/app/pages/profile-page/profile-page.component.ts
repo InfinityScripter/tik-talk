@@ -1,12 +1,13 @@
 import {Component, inject, signal} from '@angular/core';
 import {ProfileHeaderComponent} from "../../common-ui/profile-header/profile-header.component";
-import {GetProfileService} from "../../data/services/get-profile.service";
+import {ProfileService} from "../../data/services/profile.service";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {switchMap} from "rxjs";
 import {toObservable} from "@angular/core/rxjs-interop";
 import {AsyncPipe} from "@angular/common";
 import {SvgComponent} from "../../common-ui/svg/svg.component";
 import {ImgUrlPipe} from "../../helpers/pipes/img-url.pipe";
+import {PostFeedComponent} from "./post-feed/post-feed.component";
 
 @Component({
   selector: 'app-profile-page',
@@ -17,13 +18,14 @@ import {ImgUrlPipe} from "../../helpers/pipes/img-url.pipe";
     SvgComponent,
     RouterLink,
     ImgUrlPipe,
+    PostFeedComponent,
 
   ],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.scss'
 })
 export class ProfilePageComponent {
-  profileService = inject(GetProfileService)
+  profileService = inject(ProfileService)
   // chatsService = inject(ChatsService)
   route = inject(ActivatedRoute)
   router = inject(ActivatedRoute)
