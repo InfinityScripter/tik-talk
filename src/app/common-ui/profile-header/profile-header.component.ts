@@ -2,6 +2,7 @@ import {Component, input} from '@angular/core';
 
 import {ImgUrlPipe} from '../../helpers/pipes/img-url.pipe';
 import {ProfileInterface} from "../../data/interfaces/profile.interface";
+import {AvatarCircleComponent} from "../avatar-circle/avatar-circle.component";
 
 
 @Component({
@@ -9,6 +10,7 @@ import {ProfileInterface} from "../../data/interfaces/profile.interface";
   standalone: true,
   imports: [
     ImgUrlPipe,
+    AvatarCircleComponent,
 
   ],
   templateUrl: './profile-header.component.html',

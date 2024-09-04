@@ -45,5 +45,14 @@ tap(res=> this.me.set(res) )
       //   tap(res => this.me.set(res))
       // )
   }
+  uploadAvatar(file: File) {
+    const fd = new FormData()
+    fd.append('image', file)
+
+    return this.http.post<ProfileInterface>(
+      `${this.baseApiUrl}account/upload_image`,
+      fd
+    )
+  }
 }
 
