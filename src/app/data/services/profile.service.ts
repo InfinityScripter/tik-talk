@@ -12,6 +12,7 @@ export class ProfileService {
 
   baseApiUrl = 'https://icherniakov.ru/yt-course/'
   me = signal<ProfileInterface|null>(null)
+  filteredProfiles = signal<ProfileInterface[]>([])
 
 
   constructor() { }
@@ -53,6 +54,13 @@ tap(res=> this.me.set(res) )
       `${this.baseApiUrl}account/upload_image`,
       fd
     )
+  }
+
+  filterProfiles(params:Record<string, any>){
+    return this.http.get<PagebleInterface<ProfileInterface>>(`${this.baseApiUrl}account/accounts`,{params})
+      .pipe(
+        tap(res =>this.filteredProfiles.set(res.items))
+      )
   }
 }
 

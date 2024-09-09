@@ -5,7 +5,7 @@ import {AuthService} from "./auth.service";
 
 let isRefreshing$ = new BehaviorSubject<boolean>(false)
 
-export const authTokenInterceptor: HttpInterceptorFn = (req, next) => {
+ export const authInterceptors: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService)
   const token = authService.token
 
