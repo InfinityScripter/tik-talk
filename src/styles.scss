@@ -125,6 +125,18 @@ body {
   color: var(--dark-color);
   border-radius: 4px;
   border: 1px solid var(--dark-color);
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: var(--secondary-color);
+  }
+  &:active {
+    filter : brightness(0.85);
+  }
+}
+
+.svg16 {
+  width: 16px;
+  height: 16px;
 }
 
 .btn-shadow {

@@ -18,4 +18,9 @@
   outline: 1px solid var(--primary-color);
 }
 
+:host.comment {
+  border: 1px dashed var(--light-color);
+  border-radius: 8px;
+}
+
 /*# sourceMappingURL=post-input.component.css.map */

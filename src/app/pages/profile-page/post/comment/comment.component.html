@@ -1,0 +1,19 @@
+@if (comment(); as comment) {
+  <app-avatar-circle
+    class="size32"
+    [avatarUrl]="comment.author.avatarUrl"
+  ></app-avatar-circle>
+
+  <div class="comment-body">
+    <header class="comment-header">
+      <strong class="comment__author medium-text">
+        {{ comment.author.firstName }} {{ comment.author.lastName }}
+      </strong>
+      <!-- Отображение даты с использованием метода `getRelativeTime` -->
+      <span class="comment__date">{{ getRelativeTime(comment.createdAt) }}</span>
+    </header>
+    <p class="medium-text">
+      {{ comment.text }}
+    </p>
+  </div>
+}
