@@ -1,0 +1,10 @@
+:host {
+  border-right: var(--light-border);
+}
+
+.chats-filter-input__wrapper {
+  padding: 16px 20px;
+  border-bottom: var(--light-border);
+}
+
+/*# sourceMappingURL=chats-list.component.css.map */

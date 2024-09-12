@@ -21,7 +21,8 @@
 
 .profile-page__body {
   padding: 24px;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   gap: 64px;
 
 

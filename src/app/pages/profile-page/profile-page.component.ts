@@ -2,12 +2,13 @@ import {Component, inject, signal} from '@angular/core';
 import {ProfileHeaderComponent} from "../../common-ui/profile-header/profile-header.component";
 import {ProfileService} from "../../data/services/profile.service";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
-import {switchMap} from "rxjs";
+import {firstValueFrom, switchMap} from "rxjs";
 import {toObservable} from "@angular/core/rxjs-interop";
 import {AsyncPipe} from "@angular/common";
 import {SvgComponent} from "../../common-ui/svg/svg.component";
 import {ImgUrlPipe} from "../../helpers/pipes/img-url.pipe";
 import {PostFeedComponent} from "./post-feed/post-feed.component";
+import {ChatsService} from "../../data/services/chats.service";
 
 @Component({
   selector: 'app-profile-page',
@@ -26,9 +27,9 @@ import {PostFeedComponent} from "./post-feed/post-feed.component";
 })
 export class ProfilePageComponent {
   profileService = inject(ProfileService)
-  // chatsService = inject(ChatsService)
+  chatsService = inject(ChatsService)
   route = inject(ActivatedRoute)
-  router = inject(ActivatedRoute)
+  router = inject(Router)
 
   me$ = toObservable(this.profileService.me)
   subcribers$ = this.profileService.getSubscribersShortList(5)
@@ -45,11 +46,11 @@ export class ProfilePageComponent {
       })
     )
 
-  // async sendMessage(userId: number) {
-  //   firstValueFrom(this.chatsService.createChat(userId))
-  //     .then((res) => {
-  //       this.router.navigate(['/chats', res.id])
-  //     })
-  // }
+  async sendMessage(userId: number) {
+    firstValueFrom(this.chatsService.createChat(userId))
+      .then((res) => {
+        this.router.navigate(['/chats', res.id])
+      })
+  }
 
 }

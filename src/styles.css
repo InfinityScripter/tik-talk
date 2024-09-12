@@ -45,6 +45,7 @@
   --gray-800: #343a40;
   --gray-900: #212529;
   --white-color: #fff;
+  --ligth-border: 1px solid var(--light-color);
 }
 
 *,
