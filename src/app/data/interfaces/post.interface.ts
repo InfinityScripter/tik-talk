@@ -21,7 +21,7 @@ export interface PostInterface {
 export interface CommentInterface {
   id: number;
   text: string;
-  author: any;
+  author: ProfileInterface;
   postId: number;
   commentId: number;
   createdAt: string;

@@ -6,9 +6,9 @@
 
   <div class="comment-body">
     <header class="comment-header">
-      <strong class="comment__author medium-text">
-        {{ comment.author.firstName }} {{ comment.author.lastName }}
-      </strong>
+      <div class="comment__author">
+        {{ comment.author.username }}
+      </div>
       <!-- Отображение даты с использованием метода `getRelativeTime` -->
       <span class="comment__date">{{ getRelativeTime(comment.createdAt) }}</span>
     </header>

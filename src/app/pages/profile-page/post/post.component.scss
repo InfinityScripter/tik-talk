@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: 32px 1fr ;
   grid-gap: 16px;
-  max-width: 750px;
+max-width: 55dvw;
 }
 
 :host.comment {
@@ -20,7 +20,7 @@
 
 .post-header {
   display: grid;
-  grid-template-columns: 32px 1fr;
+  grid-template-columns: auto 1fr;
   grid-gap: 12px;
 }
 
