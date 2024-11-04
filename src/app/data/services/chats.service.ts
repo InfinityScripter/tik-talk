@@ -1,6 +1,6 @@
-import {inject, Injectable} from "@angular/core";
+import {inject, Injectable, signal} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {ChatInterface, LastMessageRes} from "../interfaces/chats.interface";
+import {ChatInterface, LastMessageRes, MessageInterface} from "../interfaces/chats.interface";
 import {ProfileService} from "./profile.service";
 import {map} from "rxjs";
 
@@ -15,6 +15,7 @@ export class ChatsService {
   baseApiUrl = 'https://icherniakov.ru/yt-course/'
   chatsApiUrl = `${this.baseApiUrl}chat/`
   messageApiUrl = `${this.baseApiUrl}message/`
+  activeChatMessages = signal<MessageInterface[]>([])
 
   createChat(userId: number) {
     return this.http.post<ChatInterface>(`${this.chatsApiUrl}${userId}`, {})
@@ -35,7 +36,7 @@ export class ChatsService {
           }
         })
 
-        // this.activeChatMessages.set(patchedMessages)
+        this.activeChatMessages.set(patchedMessages)
 
         return {
           ...chat,

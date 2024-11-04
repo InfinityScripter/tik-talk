@@ -18,7 +18,7 @@ import {firstValueFrom} from "rxjs";
 export class ChatWorkspaceMessagesWrapperComponent {
   chatService = inject(ChatsService)
   chat = input.required<ChatInterface>()
-  messages = signal<MessageInterface[]>([])
+  messages = this.chatService.activeChatMessages
 
   ngOnInit() {
     this.messages.set(this.chat().messages)

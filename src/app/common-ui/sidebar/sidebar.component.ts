@@ -37,7 +37,7 @@ export class SidebarComponent {
     },
     {
       label: 'Чаты',
-      icon: 'chats-page',
+      icon: 'chats',
       link: 'chats'
     },
     {
