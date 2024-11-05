@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, Input, input} from '@angular/core';
 
 import {ImgUrlPipe} from '../../helpers/pipes/img-url.pipe';
 import {ProfileInterface} from "../../data/interfaces/profile.interface";
@@ -17,5 +17,5 @@ import {AvatarCircleComponent} from "../avatar-circle/avatar-circle.component";
   styleUrl: './profile-header.component.scss'
 })
 export class ProfileHeaderComponent {
-  profile = input<ProfileInterface>()
+  @Input() profile: ProfileInterface | undefined;
 }

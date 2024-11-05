@@ -1,7 +1,16 @@
-@if (avatarUrl(); as avatarUrl) {
-  @if (avatarUrl) {
-    <img [src]="avatarUrl | imgUrl" alt="">
-  } @else {
-    <img src="/assets/imgs/avatar-placeholder.png" alt="">
-  }
-}
+<ng-container *ngIf="avatarUrl() as avatarUrl; else placeholder">
+  <img [src]="avatarUrl | imgUrl" alt="">
+</ng-container>
+<ng-template #placeholder>
+  <img src="/assets/imgs/avatar-placeholder.png" alt="">
+</ng-template>
+
+
+<!--Новый синтаксис есть проблема с отображением пустого ассета TODO:-->
+<!--@if (avatarUrl(); as avatarUrl) {-->
+<!--  @if (avatarUrl) {-->
+<!--    <img [src]="avatarUrl | imgUrl" alt="">-->
+<!--  } @else {-->
+<!--    <img src="/assets/imgs/avatar-placeholder.png" alt="">-->
+<!--  }-->
+<!--}-->

@@ -20,7 +20,7 @@
 
 <p class="medium-text mb20 mt20">Подписота</p>
 
-@for (subscriber of subcribers$|async; track subscriber.id) {
+@for (subscriber of subscribers$|async; track subscriber.id) {
   <app-subscriber-card [profile]="subscriber"></app-subscriber-card>
 }
 

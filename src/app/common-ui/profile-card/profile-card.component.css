@@ -22,6 +22,12 @@
   height: 70px;
   border-radius: 50%;
   overflow: hidden;
+  cursor: pointer;
+}
+.profile-card__avatar:hover {
+  filter: brightness(0.9);
+  transition: 0.3s;
+  box-shadow: 0 0 0 2px var(--light-color);
 }
 
 .profile-card__name {

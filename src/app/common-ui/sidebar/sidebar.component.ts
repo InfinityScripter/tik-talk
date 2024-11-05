@@ -1,4 +1,4 @@
-import {AsyncPipe, JsonPipe, NgForOf} from '@angular/common';
+import {AsyncPipe, JsonPipe, NgForOf, NgIf} from '@angular/common';
 import {Component, inject} from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {firstValueFrom} from 'rxjs';
@@ -18,15 +18,15 @@ import {ProfileService} from "../../data/services/profile.service";
     JsonPipe,
     RouterLink,
     ImgUrlPipe,
-    RouterLinkActive
+    RouterLinkActive,
+    NgIf
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
   profileService = inject(ProfileService)
-  subcribers$ = this.profileService.getSubscribersShortList()
-
+  subscribers$ = this.profileService.getSubscribersShortList()
   me = this.profileService.me
 
   menuItems = [
