@@ -1,5 +1,5 @@
 import {Component, effect, inject, ViewChild} from '@angular/core';
-import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {firstValueFrom} from 'rxjs';
 import {ProfileHeaderComponent} from '../../common-ui/profile-header/profile-header.component';
 import {ProfileService} from '../../data/services/profile.service';
@@ -20,17 +20,28 @@ import {AvatarUploadComponent} from "./avatar-upload/avatar-upload.component";
 })
 
 export class SettingsPageComponent {
-  fb = inject(FormBuilder)
   profileService = inject(ProfileService)
 
   @ViewChild(AvatarUploadComponent) avatarUploader!: AvatarUploadComponent
 
-  form = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    username: [{value: '', disabled: true}, Validators.required],
-    description: [''],
-    stack: ['']
+  // Это один из способов создания формы
+  // fb = inject(FormBuilder)
+
+  // form = this.fb.group({
+  //   firstName: ['', Validators.required],
+  //   lastName: ['', Validators.required],
+  //   username: [{value: '', disabled: true}, Validators.required],
+  //   description: [''],
+  //   stack: ['']
+  // })
+  // Другой способ создания формы
+
+  form = new FormGroup({
+      firstName: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      username: new FormControl({value: '', disabled: true}, Validators.required),
+      description: new FormControl(''),
+      stack: new FormControl('')
   })
 
   constructor() {
